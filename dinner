@@ -11,14 +11,10 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Inter',sans-serif;background:#0C0A07;color:#EDE8DF;min-height:100vh}
 
-nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:1.75rem 3rem;border-bottom:0.5px solid rgba(237,232,223,0.08);}
-.logo-back{display:flex;align-items:center;text-decoration:none;color:rgba(237,232,223,0.4);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;justify-self:start}
-.logo-back:hover{color:rgba(237,232,223,0.7)}
-.logo-parent{font-family:'Cormorant Garamond',serif;font-size:1rem;text-transform:none;letter-spacing:0.04em;color:rgba(237,232,223,0.35)}
-.logo-parent em{font-style:italic;color:rgba(191,167,106,0.5)}
-.logo-exp{font-family:'Cormorant Garamond',serif;font-size:1.2rem;letter-spacing:0.04em;color:#EDE8DF;justify-self:center;white-space:nowrap}
-.logo-exp em{font-style:italic;color:#BFA76A}
-.nav-r{display:flex;align-items:center;gap:2rem;justify-self:end}
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.5rem 3rem;border-bottom:0.5px solid rgba(237,232,223,0.08);}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;letter-spacing:0.04em;color:#EDE8DF;text-decoration:none;}
+.logo em{font-style:italic;color:#BFA76A}
+.nav-r{display:flex;align-items:center;gap:2rem;}
 .nav-r a{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(237,232,223,0.45);text-decoration:none;transition:color 0.2s}
 .nav-r a:hover{color:#EDE8DF}
 .nav-r button{background:#BFA76A;color:#0C0A07;border:none;padding:9px 22px;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;font-family:'Inter',sans-serif}
@@ -122,8 +118,7 @@ footer{padding:1.75rem 3rem;border-top:0.5px solid rgba(237,232,223,0.07);displa
 
 @media(max-width:600px){
   nav{padding:1.1rem 1.25rem}
-  .logo-exp{font-size:1rem}
-  .logo-parent{font-size:0.85rem}
+  .logo{font-size:1rem}
   .nav-r a{display:none}
   .nav-r button{padding:8px 14px;font-size:11px}
   .hero{grid-template-columns:1fr;gap:2.5rem;padding:3rem 1.25rem 2.5rem}
@@ -148,7 +143,7 @@ footer{padding:1.75rem 3rem;border-top:0.5px solid rgba(237,232,223,0.07);displa
 }
 
 @media(max-width:380px){
-  .logo-exp{font-size:0.9rem}
+  .logo{font-size:0.95rem}
   .nav-r button{display:none}
   h1{font-size:1.9rem}
   .mem-card{padding:1.75rem 1.25rem}
@@ -158,11 +153,7 @@ footer{padding:1.75rem 3rem;border-top:0.5px solid rgba(237,232,223,0.07);displa
 <body>
 
 <nav>
-  <a href="index.html" class="logo-back">
-    <i class="ti ti-arrow-left" style="font-size:13px;margin-right:6px;vertical-align:middle;opacity:0.5;"></i>
-    <span class="logo-parent">With<em>Strangers</em></span>
-  </a>
-  <div class="logo-exp">Dinner<em>WithStrangers</em></div>
+  <a href="index.html" class="logo">Dinner<em>WithStrangers</em></a>
   <div class="nav-r">
     <a href="#why">Our table</a>
     <a href="#membership">Membership</a>
@@ -331,7 +322,7 @@ footer{padding:1.75rem 3rem;border-top:0.5px solid rgba(237,232,223,0.07);displa
 </div>
 
 <footer>
-  <div class="fl"><a href="index.html">With<em>Strangers</em></a> &nbsp;&rsaquo;&nbsp; Dinner</div>
+  <div class="fl">Dinner<em>WithStrangers</em></div>
   <div class="fr">Portland, OR &middot; Founded 2025</div>
 </footer>
 
