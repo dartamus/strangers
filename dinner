@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WithStrangers — Portland</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#0C0A07;color:#EDE8DF;min-height:100vh}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.75rem 3rem;border-bottom:0.5px solid rgba(237,232,223,0.08)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;letter-spacing:0.04em;color:#EDE8DF}
+.logo em{font-style:italic;color:#BFA76A}
+.nav-r{display:flex;align-items:center;gap:2rem}
+.nav-r a{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(237,232,223,0.45);text-decoration:none;transition:color 0.2s}
+.nav-r a:hover{color:#EDE8DF}
+.nav-r button{background:#BFA76A;color:#0C0A07;border:none;padding:9px 22px;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;font-family:'Inter',sans-serif}
+.nav-r button:hover{background:#D4BD80}
+
+.hero{max-width:1060px;margin:0 auto;padding:6rem 3rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.eyebrow{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#BFA76A;margin-bottom:1.25rem}
+h1{font-family:'Cormorant Garamond',serif;font-size:3.8rem;line-height:1.05;font-weight:400;color:#EDE8DF;margin-bottom:1.5rem}
+h1 em{font-style:italic;color:#BFA76A}
+.sub{font-size:1rem;line-height:1.8;color:rgba(237,232,223,0.55);margin-bottom:2.5rem;max-width:420px}
+.hero-btns{display:flex;flex-direction:column;gap:0.75rem;max-width:320px}
+.btn-main{background:#BFA76A;color:#0C0A07;border:none;padding:16px 28px;font-size:13px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;text-align:center;font-family:'Inter',sans-serif}
+.btn-main:hover{background:#D4BD80}
+.btn-sub{background:transparent;color:rgba(237,232,223,0.5);border:none;padding:0;font-size:12px;letter-spacing:0.05em;text-align:center}
+
+.seats-panel{background:#141209;border:0.5px solid rgba(191,167,106,0.2);padding:2rem}
+.sp-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.5rem}
+.sp-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#BFA76A}
+.sp-date{font-size:11px;letter-spacing:0.08em;color:rgba(237,232,223,0.35);text-transform:uppercase;margin-top:3px}
+.sp-rest{font-size:12px;color:rgba(237,232,223,0.4);margin-bottom:1.75rem;padding-bottom:1.25rem;border-bottom:0.5px solid rgba(237,232,223,0.07)}
+.sp-rest strong{display:block;font-size:14px;color:rgba(237,232,223,0.8);font-weight:500;margin-bottom:2px}
+
+.table-row{margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:0.5px solid rgba(237,232,223,0.06)}
+.table-row:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.tr-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem}
+.tr-name{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(237,232,223,0.5)}
+.tr-status-open{font-size:11px;letter-spacing:0.06em;color:#BFA76A;background:rgba(191,167,106,0.1);padding:3px 10px;border:0.5px solid rgba(191,167,106,0.25)}
+.tr-status-full{font-size:11px;letter-spacing:0.06em;color:rgba(237,232,223,0.3);background:rgba(237,232,223,0.04);padding:3px 10px;border:0.5px solid rgba(237,232,223,0.1)}
+.seats{display:flex;gap:6px}
+.seat{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:0.03em}
+.s-taken{background:rgba(191,167,106,0.15);border:0.5px solid rgba(191,167,106,0.35);color:#BFA76A}
+.s-you{background:rgba(191,167,106,0.3);border:1px solid #BFA76A;color:#EDE8DF;font-weight:500}
+.s-open{background:rgba(237,232,223,0.04);border:0.5px dashed rgba(237,232,223,0.2);color:rgba(237,232,223,0.2)}
+.reserve-btn{width:100%;margin-top:1.5rem;background:#BFA76A;color:#0C0A07;border:none;padding:13px;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;font-family:'Inter',sans-serif}
+.reserve-btn:hover{background:#D4BD80}
+
+.commit-bar{background:#141209;border-top:0.5px solid rgba(237,232,223,0.06);border-bottom:0.5px solid rgba(237,232,223,0.06);padding:2.5rem 3rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;max-width:100%}
+.cb-item{display:flex;align-items:flex-start;gap:1rem}
+.cb-icon{color:#BFA76A;font-size:20px;flex-shrink:0;margin-top:2px}
+.cb-title{font-size:13px;font-weight:500;color:#EDE8DF;margin-bottom:4px}
+.cb-desc{font-size:12px;color:rgba(237,232,223,0.45);line-height:1.65}
+
+.section-eye{text-align:center;padding:4rem 3rem 0;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(237,232,223,0.25)}
+.divider{max-width:1060px;margin:4rem auto 0;padding:0 3rem}
+.divider hr{border:none;border-top:0.5px solid rgba(237,232,223,0.08)}
+
+.philosophy{max-width:680px;margin:0 auto;padding:2.5rem 3rem 4rem;text-align:center}
+.phil-quote{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-style:italic;color:#EDE8DF;line-height:1.4;margin-bottom:1.5rem}
+.phil-quote em{color:#BFA76A;font-style:normal}
+.phil-body{font-size:14px;line-height:1.9;color:rgba(237,232,223,0.5)}
+
+.membership{max-width:1060px;margin:0 auto;padding:2rem 3rem 5rem}
+.mem-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(237,232,223,0.08);border:0.5px solid rgba(237,232,223,0.08)}
+.mem-card{background:#0C0A07;padding:2.5rem 2rem}
+.mem-card.hl{background:#141209}
+.mem-label{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:#BFA76A;margin-bottom:1rem}
+.mem-name{font-family:'Cormorant Garamond',serif;font-size:2rem;color:#EDE8DF;margin-bottom:0.25rem;font-weight:400}
+.mem-price{font-size:1rem;color:rgba(237,232,223,0.35);margin-bottom:1.25rem;font-family:'Cormorant Garamond',serif;font-style:italic}
+.mem-price strong{font-size:2.5rem;color:#EDE8DF;font-style:normal;font-weight:400}
+.mem-desc{font-size:13px;color:rgba(237,232,223,0.5);line-height:1.7;margin-bottom:1.75rem;padding-bottom:1.75rem;border-bottom:0.5px solid rgba(237,232,223,0.07)}
+.mem-feat{list-style:none;margin-bottom:2rem}
+.mem-feat li{font-size:13px;color:rgba(237,232,223,0.65);padding:0.5rem 0;display:flex;align-items:flex-start;gap:0.6rem;border-bottom:0.5px solid rgba(237,232,223,0.05)}
+.mem-feat li i{color:#BFA76A;font-size:15px;flex-shrink:0;margin-top:2px}
+.mem-btn{width:100%;padding:13px;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;border:0.5px solid rgba(191,167,106,0.4);background:transparent;color:#BFA76A;font-family:'Inter',sans-serif}
+.mem-btn:hover{background:#BFA76A;color:#0C0A07}
+.mem-btn.solid{background:#BFA76A;color:#0C0A07;border-color:#BFA76A}
+.mem-btn.solid:hover{background:#D4BD80}
+
+.deposit-note{background:#141209;border:0.5px solid rgba(191,167,106,0.15);padding:1.5rem 2rem;margin-top:1.5rem;display:flex;gap:1rem;align-items:flex-start}
+.deposit-note i{color:#BFA76A;font-size:18px;flex-shrink:0;margin-top:2px}
+.deposit-note p{font-size:13px;color:rgba(237,232,223,0.5);line-height:1.7}
+.deposit-note p strong{color:rgba(237,232,223,0.8);font-weight:500}
+
+.waitlist-section{background:#141209;border-top:0.5px solid rgba(237,232,223,0.08);padding:5rem 3rem}
+.wl-inner{max-width:520px;margin:0 auto;text-align:center}
+.wl-eye{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#BFA76A;margin-bottom:1rem}
+.wl-h{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:#EDE8DF;margin-bottom:1rem;font-weight:400}
+.wl-h em{font-style:italic;color:#BFA76A}
+.wl-sub{font-size:13px;color:rgba(237,232,223,0.45);line-height:1.7;margin-bottom:2rem}
+.wl-form{display:flex}
+.wl-form input{flex:1;background:rgba(237,232,223,0.06);border:0.5px solid rgba(237,232,223,0.15);border-right:none;color:#EDE8DF;padding:13px 16px;font-size:14px;font-family:'Inter',sans-serif;outline:none}
+.wl-form input::placeholder{color:rgba(237,232,223,0.25)}
+.wl-form input:focus{border-color:rgba(191,167,106,0.5)}
+.wl-form button{background:#BFA76A;color:#0C0A07;border:none;padding:13px 22px;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:background 0.2s;font-family:'Inter',sans-serif}
+.wl-form button:hover{background:#D4BD80}
+.wl-note{font-size:11px;color:rgba(237,232,223,0.25);margin-top:1rem;letter-spacing:0.04em}
+
+footer{padding:1.75rem 3rem;border-top:0.5px solid rgba(237,232,223,0.07);display:flex;justify-content:space-between;align-items:center}
+.fl{font-family:'Cormorant Garamond',serif;font-size:1rem;color:rgba(237,232,223,0.3)}
+.fl em{font-style:italic;color:rgba(191,167,106,0.4)}
+.fr{font-size:11px;color:rgba(237,232,223,0.2);letter-spacing:0.05em}
+
+@media(max-width:768px){
+  nav{padding:1.25rem 1.5rem}
+  .nav-r a{display:none}
+  .hero{grid-template-columns:1fr;gap:3rem;padding:3rem 1.5rem}
+  h1{font-size:2.8rem}
+  .commit-bar{grid-template-columns:1fr;padding:2rem 1.5rem}
+  .mem-grid{grid-template-columns:1fr}
+  .membership{padding:2rem 1.5rem 4rem}
+  .waitlist-section{padding:3.5rem 1.5rem}
+  footer{padding:1.5rem;flex-direction:column;gap:0.5rem;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">With<em>Strangers</em></div>
+  <div class="nav-r">
+    <a href="#why">Our table</a>
+    <a href="#membership">Membership</a>
+    <a href="#waitlist">Portland</a>
+    <button onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Claim your seat &rarr;</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div>
+    <div class="eyebrow">Portland, Oregon &middot; Founding dinner</div>
+    <h1>A seat at the table with <em>strangers.</em></h1>
+    <p class="sub">We're starting small. Three tables. One restaurant. Eighteen people who've never met, sharing a meal that might matter. This isn't an app. It's an invitation.</p>
+    <div class="hero-btns">
+      <button class="btn-main" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Claim your seat &rarr;</button>
+      <div class="btn-sub">Only 18 seats exist for the founding dinner</div>
+    </div>
+  </div>
+
+  <div class="seats-panel">
+    <div class="sp-header">
+      <div>
+        <div class="sp-title">The founding dinner</div>
+        <div class="sp-date">Saturday, July 12 &middot; 7:00 PM</div>
+      </div>
+    </div>
+    <div class="sp-rest">
+      <strong>Nostrana</strong>
+      1401 SE Morrison St &middot; Portland
+    </div>
+
+    <div class="table-row">
+      <div class="tr-top">
+        <span class="tr-name">Table one</span>
+        <span class="tr-status-full">Full</span>
+      </div>
+      <div class="seats">
+        <div class="seat s-taken"><i class="ti ti-user"></i></div>
+        <div class="seat s-taken"><i class="ti ti-user"></i></div>
+        <div class="seat s-taken"><i class="ti ti-user"></i></div>
+        <div class="seat s-taken"><i class="ti ti-user"></i></div>
+        <div class="seat s-taken"><i class="ti ti-user"></i></div>
+        <div class="seat s-taken"><i class="ti ti-user"></i></div>
+      </div>
+    </div>
+
+    <div class="table-row">
+      <div class="tr-top">
+        <span class="tr-name">Table two</span>
+        <span class="tr-status-full">Full</span>
+      </div>
+      <div class="seats">
+        <div class="seat s-taken"><i class="ti ti-user"></i></div>
+        <div class="seat s-taken"><i class="ti ti-user"></i></div>
+        <div class="seat s-taken"><i class="ti ti-user"></i></div>
+        <div class="seat s-taken"><i class="ti ti-user"></i></div>
+        <div class="seat s-taken"><i class="ti ti-user"></i></div>
+        <div class="seat s-open"><i class="ti ti-plus"></i></div>
+      </div>
+    </div>
+
+    <div class="table-row">
+      <div class="tr-top">
+        <span class="tr-name">Table three</span>
+        <span class="tr-status-open">2 seats open</span>
+      </div>
+      <div class="seats">
+        <div class="seat s-taken"><i class="ti ti-user"></i></div>
+        <div class="seat s-taken"><i class="ti ti-user"></i></div>
+        <div class="seat s-taken"><i class="ti ti-user"></i></div>
+        <div class="seat s-taken"><i class="ti ti-user"></i></div>
+        <div class="seat s-you">you?</div>
+        <div class="seat s-open"><i class="ti ti-plus"></i></div>
+      </div>
+    </div>
+
+    <button class="reserve-btn" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Claim your seat</button>
+  </div>
+</div>
+
+<div class="commit-bar">
+  <div class="cb-item">
+    <i class="ti ti-heart-handshake cb-icon"></i>
+    <div>
+      <div class="cb-title">Your seat is a commitment</div>
+      <div class="cb-desc">A $10 deposit holds your place. Show up and it rolls to your next dinner. Cancel within 24 hours and it goes to Oregon Food Bank instead.</div>
+    </div>
+  </div>
+  <div class="cb-item">
+    <i class="ti ti-users cb-icon"></i>
+    <div>
+      <div class="cb-title">Six strangers, one table</div>
+      <div class="cb-desc">You'll know almost nothing about them before you sit down. That's the whole point. No profiles, no previews — just show up open.</div>
+    </div>
+  </div>
+  <div class="cb-item">
+    <i class="ti ti-moon cb-icon"></i>
+    <div>
+      <div class="cb-title">The night can continue</div>
+      <div class="cb-desc">All three tables are invited to a nearby bar after dinner. Some of the best conversations happen after the plates are cleared.</div>
+    </div>
+  </div>
+</div>
+
+<div id="why">
+  <div class="divider"><hr></div>
+  <div class="section-eye">Why WithStrangers</div>
+  <div class="philosophy">
+    <div class="phil-quote">"The best conversations of your life were probably with people you almost <em>didn't</em> meet."</div>
+    <p class="phil-body">We built WithStrangers because modern life has made it too easy to stay inside your circle. Not because people are unfriendly — but because the structures for meeting them are broken. Dating apps, networking events, algorithmically curated feeds. None of them were built for friendship. We start with dinner, because a shared meal is still the oldest, most human way to know someone.</p>
+  </div>
+</div>
+
+<div id="membership">
+  <div class="divider"><hr></div>
+  <div class="section-eye">Membership</div>
+  <div class="membership">
+    <div class="mem-grid">
+      <div class="mem-card">
+        <div class="mem-label">Once a month</div>
+        <div class="mem-name">The occasional</div>
+        <div class="mem-price"><strong>$15</strong> / month</div>
+        <p class="mem-desc">One seat at the table per month. Low commitment, high intention.</p>
+        <ul class="mem-feat">
+          <li><i class="ti ti-check"></i>One dinner per month</li>
+          <li><i class="ti ti-check"></i>Post-dinner connection requests</li>
+          <li><i class="ti ti-check"></i>Optional bar after every dinner</li>
+          <li><i class="ti ti-check"></i>$10 commitment deposit per seat</li>
+        </ul>
+        <button class="mem-btn" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Join as occasional &rarr;</button>
+      </div>
+      <div class="mem-card hl">
+        <div class="mem-label">Most members</div>
+        <div class="mem-name">The regular</div>
+        <div class="mem-price"><strong>$25</strong> / month</div>
+        <p class="mem-desc">Four dinners a month. You become part of the fabric of the community.</p>
+        <ul class="mem-feat">
+          <li><i class="ti ti-check"></i>Four dinners per month</li>
+          <li><i class="ti ti-check"></i>Priority seat access</li>
+          <li><i class="ti ti-check"></i>Thoughtful matching across dinners</li>
+          <li><i class="ti ti-check"></i>Connection messaging after each dinner</li>
+          <li><i class="ti ti-check"></i>Early access as we grow to new cities</li>
+          <li><i class="ti ti-check"></i>$10 commitment deposit per seat</li>
+        </ul>
+        <button class="mem-btn solid" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Become a regular &rarr;</button>
+      </div>
+    </div>
+    <div class="deposit-note">
+      <i class="ti ti-info-circle"></i>
+      <p><strong>On the $10 deposit:</strong> This isn't revenue — it's a handshake. It exists because empty seats hurt the people who did show up. Cancel more than 24 hours out and it's refunded in full. Cancel inside 24 hours and it goes to <strong>Oregon Food Bank</strong> on your behalf. Show up, and it simply rolls to your next dinner.</p>
+    </div>
+  </div>
+</div>
+
+<div id="waitlist" class="waitlist-section">
+  <div class="wl-inner">
+    <div class="wl-eye">Portland &middot; Founding cohort</div>
+    <div class="wl-h">Three tables.<br><em>Eighteen people.</em></div>
+    <p class="wl-sub">We're not scaling this until it feels right. Leave your email and we'll reach out personally when your seat is ready.</p>
+    <div class="wl-form">
+      <input type="email" placeholder="your@email.com" id="email-input" />
+      <button onclick="handleSignup()">I'm in &rarr;</button>
+    </div>
+    <div class="wl-note" id="wl-confirm">No spam. Ever. Just a personal note when a seat opens.</div>
+  </div>
+</div>
+
+<footer>
+  <div class="fl">With<em>Strangers</em></div>
+  <div class="fr">Portland, OR &middot; Founded 2025</div>
+</footer>
+
+<script>
+function handleSignup() {
+  const input = document.getElementById('email-input');
+  const note = document.getElementById('wl-confirm');
+  const val = input.value.trim();
+  if (!val || !val.includes('@')) {
+    input.style.borderColor = 'rgba(191,67,67,0.5)';
+    return;
+  }
+  input.style.borderColor = 'rgba(191,167,106,0.5)';
+  input.value = '';
+  input.placeholder = 'You\'re on the list.';
+  note.textContent = 'We\'ll be in touch personally. Thank you for being here.';
+  note.style.color = '#BFA76A';
+}
+document.getElementById('email-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') handleSignup();
+});
+</script>
+</body>
+</html>
