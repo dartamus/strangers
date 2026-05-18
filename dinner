@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WithStrangers — Portland</title>
+<title>Dinner with Strangers - Portland</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
@@ -11,10 +11,14 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Inter',sans-serif;background:#0C0A07;color:#EDE8DF;min-height:100vh}
 
-nav{display:flex;align-items:center;justify-content:space-between;padding:1.75rem 3rem;border-bottom:0.5px solid rgba(237,232,223,0.08)}
-.logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;letter-spacing:0.04em;color:#EDE8DF}
-.logo em{font-style:italic;color:#BFA76A}
-.nav-r{display:flex;align-items:center;gap:2rem}
+nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:1.75rem 3rem;border-bottom:0.5px solid rgba(237,232,223,0.08);}
+.logo-back{display:flex;align-items:center;text-decoration:none;color:rgba(237,232,223,0.4);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;justify-self:start}
+.logo-back:hover{color:rgba(237,232,223,0.7)}
+.logo-parent{font-family:'Cormorant Garamond',serif;font-size:1rem;text-transform:none;letter-spacing:0.04em;color:rgba(237,232,223,0.35)}
+.logo-parent em{font-style:italic;color:rgba(191,167,106,0.5)}
+.logo-exp{font-family:'Cormorant Garamond',serif;font-size:1.2rem;letter-spacing:0.04em;color:#EDE8DF;justify-self:center;white-space:nowrap}
+.logo-exp em{font-style:italic;color:#BFA76A}
+.nav-r{display:flex;align-items:center;gap:2rem;justify-self:end}
 .nav-r a{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(237,232,223,0.45);text-decoration:none;transition:color 0.2s}
 .nav-r a:hover{color:#EDE8DF}
 .nav-r button{background:#BFA76A;color:#0C0A07;border:none;padding:9px 22px;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;font-family:'Inter',sans-serif}
@@ -105,25 +109,60 @@ h1 em{font-style:italic;color:#BFA76A}
 footer{padding:1.75rem 3rem;border-top:0.5px solid rgba(237,232,223,0.07);display:flex;justify-content:space-between;align-items:center}
 .fl{font-family:'Cormorant Garamond',serif;font-size:1rem;color:rgba(237,232,223,0.3)}
 .fl em{font-style:italic;color:rgba(191,167,106,0.4)}
+.fl a{color:rgba(191,167,106,0.5);text-decoration:none;transition:color 0.2s}
+.fl a:hover{color:#BFA76A}
 .fr{font-size:11px;color:rgba(237,232,223,0.2);letter-spacing:0.05em}
 
-@media(max-width:768px){
-  nav{padding:1.25rem 1.5rem}
-  .nav-r a{display:none}
-  .hero{grid-template-columns:1fr;gap:3rem;padding:3rem 1.5rem}
-  h1{font-size:2.8rem}
-  .commit-bar{grid-template-columns:1fr;padding:2rem 1.5rem}
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;gap:3rem;padding:4rem 2rem 3rem}
+  .commit-bar{grid-template-columns:1fr;padding:2rem 2rem}
   .mem-grid{grid-template-columns:1fr}
-  .membership{padding:2rem 1.5rem 4rem}
-  .waitlist-section{padding:3.5rem 1.5rem}
-  footer{padding:1.5rem;flex-direction:column;gap:0.5rem;text-align:center}
+  .membership{padding:2rem 2rem 4rem}
+}
+
+@media(max-width:600px){
+  nav{padding:1.1rem 1.25rem}
+  .logo-exp{font-size:1rem}
+  .logo-parent{font-size:0.85rem}
+  .nav-r a{display:none}
+  .nav-r button{padding:8px 14px;font-size:11px}
+  .hero{grid-template-columns:1fr;gap:2.5rem;padding:3rem 1.25rem 2.5rem}
+  h1{font-size:clamp(2rem,9vw,2.8rem)}
+  .sub{font-size:0.95rem;max-width:100%}
+  .hero-btns{max-width:100%}
+  .btn-main{padding:14px 20px}
+  .seats-panel{padding:1.5rem}
+  .seats{flex-wrap:wrap;gap:8px}
+  .seat{width:36px;height:36px}
+  .commit-bar{grid-template-columns:1fr;padding:2rem 1.25rem;gap:1.75rem}
+  .section-eye{padding:3rem 1.25rem 0}
+  .philosophy{padding:2rem 1.25rem 3.5rem}
+  .phil-quote{font-size:1.5rem}
+  .mem-grid{grid-template-columns:1fr}
+  .membership{padding:2rem 1.25rem 4rem}
+  .deposit-note{padding:1.25rem 1.25rem}
+  .waitlist-section{padding:3rem 1.25rem}
+  .wl-form input{font-size:16px}
+  .wl-form button{padding:13px 14px;font-size:11px}
+  footer{padding:1.25rem 1.25rem;flex-direction:column;gap:0.4rem;text-align:center}
+}
+
+@media(max-width:380px){
+  .logo-exp{font-size:0.9rem}
+  .nav-r button{display:none}
+  h1{font-size:1.9rem}
+  .mem-card{padding:1.75rem 1.25rem}
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="logo">With<em>Strangers</em></div>
+  <a href="index.html" class="logo-back">
+    <i class="ti ti-arrow-left" style="font-size:13px;margin-right:6px;vertical-align:middle;opacity:0.5;"></i>
+    <span class="logo-parent">With<em>Strangers</em></span>
+  </a>
+  <div class="logo-exp">Dinner<em>WithStrangers</em></div>
   <div class="nav-r">
     <a href="#why">Our table</a>
     <a href="#membership">Membership</a>
@@ -216,7 +255,7 @@ footer{padding:1.75rem 3rem;border-top:0.5px solid rgba(237,232,223,0.07);displa
     <i class="ti ti-users cb-icon"></i>
     <div>
       <div class="cb-title">Six strangers, one table</div>
-      <div class="cb-desc">You'll know almost nothing about them before you sit down. That's the whole point. No profiles, no previews — just show up open.</div>
+      <div class="cb-desc">You'll know almost nothing about them before you sit down. That's the whole point. No profiles, no previews - just show up open.</div>
     </div>
   </div>
   <div class="cb-item">
@@ -233,7 +272,7 @@ footer{padding:1.75rem 3rem;border-top:0.5px solid rgba(237,232,223,0.07);displa
   <div class="section-eye">Why WithStrangers</div>
   <div class="philosophy">
     <div class="phil-quote">"The best conversations of your life were probably with people you almost <em>didn't</em> meet."</div>
-    <p class="phil-body">We built WithStrangers because modern life has made it too easy to stay inside your circle. Not because people are unfriendly — but because the structures for meeting them are broken. Dating apps, networking events, algorithmically curated feeds. None of them were built for friendship. We start with dinner, because a shared meal is still the oldest, most human way to know someone.</p>
+    <p class="phil-body">We built WithStrangers because modern life has made it too easy to stay inside your circle. Not because people are unfriendly - but because the structures for meeting them are broken. Dating apps, networking events, algorithmically curated feeds. None of them were built for friendship. We start with dinner, because a shared meal is still the oldest, most human way to know someone.</p>
   </div>
 </div>
 
@@ -273,7 +312,7 @@ footer{padding:1.75rem 3rem;border-top:0.5px solid rgba(237,232,223,0.07);displa
     </div>
     <div class="deposit-note">
       <i class="ti ti-info-circle"></i>
-      <p><strong>On the $10 deposit:</strong> This isn't revenue — it's a handshake. It exists because empty seats hurt the people who did show up. Cancel more than 24 hours out and it's refunded in full. Cancel inside 24 hours and it goes to <strong>Oregon Food Bank</strong> on your behalf. Show up, and it simply rolls to your next dinner.</p>
+      <p><strong>On the $10 deposit:</strong> This isn't revenue - it's a handshake. It exists because empty seats hurt the people who did show up. Cancel more than 24 hours out and it's refunded in full. Cancel inside 24 hours and it goes to <strong>Oregon Food Bank</strong> on your behalf. Show up, and it simply rolls to your next dinner.</p>
     </div>
   </div>
 </div>
@@ -292,7 +331,7 @@ footer{padding:1.75rem 3rem;border-top:0.5px solid rgba(237,232,223,0.07);displa
 </div>
 
 <footer>
-  <div class="fl">With<em>Strangers</em></div>
+  <div class="fl"><a href="index.html">With<em>Strangers</em></a> &nbsp;&rsaquo;&nbsp; Dinner</div>
   <div class="fr">Portland, OR &middot; Founded 2025</div>
 </footer>
 
